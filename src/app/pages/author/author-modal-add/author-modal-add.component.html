@@ -1,0 +1,20 @@
+<nz-modal
+  [(nzVisible)]="visible"
+  [nzTitle]="'Add Author'"
+  (nzOnCancel)="handleCancel()"
+  [nzFooter]="null"
+>
+  <ng-container *nzModalContent>
+    <form #addAuthorForm [formGroup]="authorForm" (ngSubmit)="handleSubmit()">
+      <nz-form-item>
+        <nz-form-label [nzRequired]="true">Author Name</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="authorName"/>
+        </nz-form-control>
+      </nz-form-item>
+      <div nz-row nzJustify="center">
+        <button nz-button nzType="primary" [disabled]="!authorForm.valid">Submit</button>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>
